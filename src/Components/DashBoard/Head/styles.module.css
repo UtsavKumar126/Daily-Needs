@@ -1,0 +1,25 @@
+.head{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 2rem;
+    gap: 1rem;
+    background-color: #F12A43;
+}
+.head p{
+    background-color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.head a{
+    background-color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.head select{
+    border: 1px solid black;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+}
+.div{
+    color: white;
+}

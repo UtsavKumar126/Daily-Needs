@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    background-color: #F12A43;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 16px;
+}
+.image{
+    max-width: 150px;
+}
+.contact{
+    display: flex;
+    color: white;
+    gap:1rem;
+    align-items: center;
+}
+.cart{
+    display: flex;
+    color: white;
+    gap:1rem;
+    align-items: center;
+}

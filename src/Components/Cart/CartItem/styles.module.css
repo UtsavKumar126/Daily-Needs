@@ -1,0 +1,49 @@
+th{
+    padding: 1rem 1.5rem;
+    text-align: start;
+}
+tr{
+    border-bottom:1px dashed #F12A43;
+}
+td:first-child{
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+
+}
+td img{
+    max-width: 40%;
+    max-height: 20%;
+}
+.quant{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.quant div{
+    padding: 1rem;
+}
+td button{
+    border: 1px solid black;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+}
+td button:hover{
+    background-color: #F12A43;
+    color: white;
+}
+.center{
+    text-align: center;
+}
+td[class="center"]{
+    text-align: center;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 1.2rem;
+    font-weight: 600;
+}

@@ -1,0 +1,27 @@
+.main{
+    display: grid;
+    grid-template-columns: 3.5fr 1.5fr;
+}
+.cart{
+    padding: 2rem 3rem;
+    overflow-y: auto;
+}
+.order {
+    position: sticky;
+    top: 0;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%; /* Set the height to fill the available space */
+    max-height: 100vh; /* Limit the maximum height to viewport height */
+  }
+.heading{
+    display: flex;
+    justify-content: space-between;
+    font-size: 32px;
+    font-weight: 600;
+    border-bottom: 2px solid rgb(185, 183, 183);
+    padding: 1rem;
+
+}

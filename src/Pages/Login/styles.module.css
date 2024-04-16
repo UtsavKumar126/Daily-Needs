@@ -1,0 +1,45 @@
+input{
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+input:focus{
+    outline: none;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    gap: 0.5rem;
+    max-width: 600px;
+    border: 2px solid #F12A43;
+    padding: 1rem ;
+    border-radius: 1rem;
+    background-color: rgb(214, 212, 212);
+}
+.title{
+    font-size: 45px;
+    font-weight: 500;
+    color: #F12A43;
+}
+.button{
+    border: none;
+    background-color: #F12A43;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+.button:hover{
+    scale: 1.2;
+
+}
+.message{
+    color: rgb(41, 40, 40);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 1rem;
+    text-decoration: underline;
+}

@@ -1,0 +1,35 @@
+.search{
+    width: 50%;
+    display: flex;
+    align-items: stretch;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+.search input{
+    border:none;
+    width: 70%;
+    padding: 0.5rem 1rem;
+    border-bottom-left-radius: 0.5rem !important;
+    border-top-left-radius: 0.5rem !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.search input:focus{
+    outline: none;
+}
+.search select{
+    border: none;
+    width: 17%;
+    padding: 0.5rem 1rem;
+    background-color: rgb(233, 232, 232);
+    color: gray;
+}
+.search button{
+    border: none;
+    width: 13%;
+    padding: 0.5rem 1rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: rgb(24, 24, 24);
+    color:white;
+}
