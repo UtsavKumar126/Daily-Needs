@@ -16,6 +16,7 @@
     flex-direction: column;
     gap: 0.5rem;
     padding-bottom: 0.5rem;
+    height: 100%;
 }
 span{
     color: #F12A43;
@@ -41,9 +42,10 @@ span{
     justify-content: center;
     align-items: center;
     bottom: 0;
+    cursor: pointer;
 }
 .icon:hover{
-    background-color: #F12A43;
-    color: white;
-    border: 1px solid white;
+    background-color: yellow;
+    color: black;
+    border: 1px solid green;
 }

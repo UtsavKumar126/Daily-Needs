@@ -10,8 +10,11 @@ import {
 } from "firebase/auth";
 import { app, auth, googleProvider } from "../../Firebase";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { bringToCart } from "../../Redux/features/Cart/CartActions"
+import { useDispatch, useSelector } from "react-redux";
+import { bringToCart } from "../../Redux/features/Cart/CartActions";
+import { getFromWatchList } from "../../Redux/features/Watchlist/watchlistaction";
+import { toast } from "react-toastify";
+import { bringToOrders } from "../../Redux/features/orders/orderActions";
 
 function Signup() {
   const [mobile, setMobile] = useState(false);
@@ -22,7 +25,9 @@ function Signup() {
   const [mobileNo, setMobileNo] = useState("");
 
   const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const watchlist = useSelector((state) => state.watchlist);
 
   function signup(e) {
     e.preventDefault();
@@ -31,6 +36,7 @@ function Signup() {
       .then((res) => {
         console.log(res);
         localStorage.setItem("id", res.user.uid);
+        toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })
       .catch((error) => console.log(error));
@@ -39,7 +45,9 @@ function Signup() {
     signInWithPopup(auth, googleProvider)
       .then((resp) => {
         localStorage.setItem("id", resp.user.uid);
-        dispatch(bringToCart(localStorage.getItem('id')))
+        dispatch(bringToCart(localStorage.getItem("id")));
+        dispatch(getFromWatchList(localStorage.getItem("id")));
+        toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })
       .catch((error) => console.log(error));
@@ -49,7 +57,9 @@ function Signup() {
     signInWithPopup(auth, provider)
       .then((resp) => {
         localStorage.setItem("id", resp.user.uid);
-        dispatch(bringToCart(localStorage.getItem('id')))
+        dispatch(bringToCart(localStorage.getItem("id")));
+        dispatch(getFromWatchList(localStorage.getItem("id")));
+        toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })
       .catch((err) => console.log(err.message));
@@ -70,7 +80,10 @@ function Signup() {
       .confirm(otp)
       .then((res) => {
         localStorage.setItem("id", res.user.uid);
-        dispatch(bringToCart(localStorage.getItem('id')))
+        dispatch(bringToCart(localStorage.getItem("id")));
+        dispatch(getFromWatchList(localStorage.getItem("id")));
+        dispatch(bringToOrders(localStorage.getItem('id')));
+        toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })
       .catch((err) => console.log(err.message));

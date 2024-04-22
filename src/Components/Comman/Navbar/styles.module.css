@@ -5,7 +5,7 @@
     align-items: center;
     padding: 1rem 1rem;
     position: sticky;
-    top: 0;
+    top: 3rem;
     z-index: 100;
     font-size: 16px;
 }
@@ -23,4 +23,5 @@
     color: white;
     gap:1rem;
     align-items: center;
+    cursor: pointer;
 }

@@ -25,3 +25,17 @@
     padding: 1rem;
 
 }
+.login{
+    background-color: rgb(65, 198, 250);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+.notLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

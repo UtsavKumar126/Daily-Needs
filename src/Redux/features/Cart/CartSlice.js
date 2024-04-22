@@ -3,7 +3,6 @@ import { getDoc, getFirestore } from "firebase/firestore";
 import { doc, setDoc } from "firebase/firestore";
 import { app } from "../../../Firebase";
 import { bringToCart } from "./CartActions";
-import { act } from "react-dom/test-utils";
 
 const initialState = [];
 
@@ -16,6 +15,9 @@ const CartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       return state.filter(item => item.id !== action.payload);
+    },
+    resetCart:()=>{
+      return [];
     },
     increaseQuantity: (state, action) => {
       return state.map((product) => {
@@ -48,7 +50,7 @@ const CartSlice = createSlice({
       async function setdata() {
         try {
           const db = getFirestore(app);
-          await setDoc(doc(db, "cart", action.payload), {
+          await setDoc(doc(db,action.payload,'cart'), {
             name: action.payload,
             cart: [...state],
           });
@@ -68,5 +70,5 @@ const CartSlice = createSlice({
   }
 });
 
-export const { addToCart, removeFromCart, pushToCart,increaseQuantity,decreaseQuantity} = CartSlice.actions;
+export const { addToCart, removeFromCart, pushToCart,increaseQuantity,decreaseQuantity,resetCart} = CartSlice.actions;
 export default CartSlice.reducer;

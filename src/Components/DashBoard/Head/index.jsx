@@ -1,14 +1,32 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../../../Firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { pushToCart } from "../../../Redux/features/Cart/CartSlice";
+import { pushToWatchList } from "../../../Redux/features/Watchlist/WatchlistSlice";
+import { toast } from "react-toastify";
+import { pushToOrders } from "../../../Redux/features/orders/ordersSlice";
 
 function Head() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const watchlist = useSelector((state) => state.watchlist);
+
+  function logout() {
+    if (window.confirm("Do you want to logout")) {
+      const auth = getAuth(app);
+      signOut(auth).then((res) => {
+        dispatch(pushToCart(localStorage.getItem("id")));
+        dispatch(pushToWatchList(localStorage.getItem("id")));
+        dispatch(pushToOrders(localStorage.getItem('id')));
+        localStorage.setItem("id", "");
+        navigate("/");
+        toast.success("Logged out Successfully")
+      });
+    }
+  }
   return (
     <div className={styles.head}>
       {localStorage.getItem("id") && (
@@ -24,25 +42,9 @@ function Head() {
           <option value="">LKR</option>
         </optgroup>
       </select>
-      {!localStorage.getItem("id") && (
-        <a href="" onClick={() => navigate("/login")}>
-          Login
-        </a>
-      )}
-      {localStorage.getItem("id") && (
-        <p
-          onClick={() => {
-            const auth = getAuth(app);
-            signOut(auth).then((res) => {
-              dispatch(pushToCart(localStorage.getItem("id")));
-              localStorage.setItem("id", "");
-              navigate("/");
-            });
-          }}
-        >
-          Logout
-        </p>
-      )}
+      <Link to={"/watchlist"}>Watchlist ({watchlist.length})</Link>
+      {!localStorage.getItem("id") && <Link to={"/login"}>Login</Link>}
+      {localStorage.getItem("id") && <Link onClick={logout}>Logout</Link>}
     </div>
   );
 }

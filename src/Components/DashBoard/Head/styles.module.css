@@ -4,6 +4,9 @@
     padding: 0.5rem 2rem;
     gap: 1rem;
     background-color: #F12A43;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 .head p{
     background-color: white;

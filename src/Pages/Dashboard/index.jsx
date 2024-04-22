@@ -21,8 +21,7 @@ function DashBoard() {
   const [page, setPage] = useState(1);
   const state = useSelector((state) => state.cart);
 
-
-  const handleChange = (event, value) => {
+  const handleChange = (e,value) => {
     setPage(value);
     var prevIndex = (value - 1) * 10;
     setPaginatedProducts(products.products.slice(prevIndex, prevIndex + 10));
@@ -54,6 +53,14 @@ function DashBoard() {
               <p>Products</p>
               <div className={styles.productGrid}>
                 {!search &&
+                  selected.length === 0 &&
+                  products &&
+                  products.products &&paginated.length===0&&
+                  products.products.filter((product,i)=>i<10).map((product, i) => {
+                    return <ProductCard product={product} key={i} />;
+                  })}
+
+                  {!search &&
                   selected.length === 0 &&
                   products &&
                   products.products &&

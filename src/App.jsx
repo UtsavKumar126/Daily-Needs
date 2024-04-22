@@ -9,6 +9,9 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import {Routes,Route} from"react-router-dom"
 import Cart from './Pages/Cart'
+import Watchlist from './Pages/Watchlist'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const dispatch=useDispatch();
@@ -22,7 +25,9 @@ function App() {
       <Route path='/login' element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/watchlist' element={<Watchlist/>}/>
     </Routes>
+    <ToastContainer position="top-center"/>
   </>
   )
 }
