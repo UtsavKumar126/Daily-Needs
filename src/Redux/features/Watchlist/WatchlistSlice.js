@@ -19,7 +19,7 @@ const WatchListSlice=createSlice({
             async function setdata() {
               try {
                 const db = getFirestore(app);
-                await setDoc(doc(db,action.payload,'watchlist'), {
+                await setDoc(doc(db,'watchlist',action.payload), {
                   name: action.payload,
                   watchlist: [...state],
                 });

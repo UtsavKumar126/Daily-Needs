@@ -50,7 +50,7 @@ const CartSlice = createSlice({
       async function setdata() {
         try {
           const db = getFirestore(app);
-          await setDoc(doc(db,action.payload,'cart'), {
+          await setDoc(doc(db,'cart',action.payload), {
             name: action.payload,
             cart: [...state],
           });

@@ -18,7 +18,7 @@ const orderSlice=createSlice({
             async function setdata() {
               try {
                 const db = getFirestore(app);
-                await setDoc(doc(db,action.payload,'orders'), {
+                await setDoc(doc(db,'orders',action.payload), {
                   name: action.payload,
                   orders: [...state],
                 });

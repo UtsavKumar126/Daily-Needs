@@ -6,19 +6,14 @@ import { toast } from "react-toastify";
 export const getFromWatchList = createAsyncThunk(
   "dashboard/watchlist",
   async (id) => {
-    try {
-      const db = getFirestore(app);
-      const docRef2 = doc(db, id, "watchlist");
-      const docSnap2 = await getDoc(docRef2);
-
-      if (docSnap2.exists()) {
-        if(docSnap2.data().watchlist.length>0){
-        toast.info("Your Watchlist has "+docSnap2.data().watchlist.length+" items")
-        }
-        return docSnap2.data().watchlist;
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const db=getFirestore(app)
+  try{
+    const docRef=doc(db,'watchlist',id);
+    const docSnap=await getDoc(docRef);
+    return docSnap.data().watchlist;
+  }
+  catch(error){
+    console.log(error);
+  }
   }
 );
