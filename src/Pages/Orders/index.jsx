@@ -7,6 +7,30 @@ import { useNavigate } from "react-router-dom";
 function Orders() {
   const orders = useSelector((state) => state.orders);
   const navigate=useNavigate();
+
+
+  if (!localStorage.getItem("id")) {
+    return (
+      <div className={styles.notLogin}>
+        <div className={styles.heading}>My Cart</div>
+        <div>Login to view your Orders</div>
+        <button className={styles.login} onClick={() => navigate("/login")}>
+          Login
+        </button>
+      </div>
+    );
+  }
+  if (localStorage.getItem("id") && orders.length == 0) {
+    return (
+      <div className={styles.notLogin}>
+        <div className={styles.heading}>My Orders</div>
+        <div>No Orders to Show</div>
+        <button className={styles.login} onClick={() => navigate("/")}>
+          DashBoard
+        </button>
+      </div>
+    );
+  }
   return (
     <div className={styles.orders}>
       <div className={styles.title}>Order Items</div>
