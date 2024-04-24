@@ -46,6 +46,7 @@ function Head() {
         </optgroup>
       </select>
       <Link to={"/watchlist"}>Watchlist ({watchlist.length})</Link>
+      <Link to={"/orders"}>Orders</Link>
       {!localStorage.getItem("id") && <Link to={"/login"}>Login</Link>}
       {localStorage.getItem("id") && (
         <Link onClick={() => logout()}>Logout</Link>

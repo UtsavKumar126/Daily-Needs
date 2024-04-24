@@ -47,6 +47,7 @@ function Signup() {
         localStorage.setItem("id", resp.user.uid);
         dispatch(bringToCart(localStorage.getItem("id")));
         dispatch(getFromWatchList(localStorage.getItem("id")));
+        dispatch(bringToOrders(localStorage.getItem('id')));
         toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })
@@ -59,6 +60,7 @@ function Signup() {
         localStorage.setItem("id", resp.user.uid);
         dispatch(bringToCart(localStorage.getItem("id")));
         dispatch(getFromWatchList(localStorage.getItem("id")));
+        dispatch(bringToOrders(localStorage.getItem('id')));
         toast.success("Logged in as " + localStorage.getItem("id"));
         navigate("/");
       })

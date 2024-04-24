@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import CartItem from "../../Components/Cart/CartItem";
@@ -10,11 +10,14 @@ import { getTotalCost } from "../../Functions/getTotalCost";
 import { Try } from "@mui/icons-material";
 import { addToOrders } from "../../Redux/features/orders/ordersSlice";
 import { resetCart } from "../../Redux/features/Cart/CartSlice";
+import { v4 as uuid } from "uuid";
+import { CategoryContext } from "../../Context/CategoryProvider";
 
 function Cart() {
   const products = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch=useDispatch();
+  const{distance}=useContext(CategoryContext);
 
   const [deliveryDetails, setDeliveryDetails] = useState({
     name: "",
@@ -47,7 +50,7 @@ function Cart() {
       amount: parseInt(totalCost*100),
       currency: "INR",
       order_receipt: "order_rcptid_" + deliveryDetails.name,
-      name: "E-Bharat",
+      name: "Daily Needs",
       description: "for testing purpose",
       handler: function (response) {
         console.log(response);
@@ -64,6 +67,8 @@ function Cart() {
           }),
           userid: localStorage.getItem("id"),
           paymentId,
+          orderId:`OD${uuid()}`,
+          totalCost:(getTotalCost(products)+(distance*4))
         };
 
         dispatch(addToOrders(orderInfo))

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bringToCart } from "../../Redux/features/Cart/CartActions";
 import { getFromWatchList } from "../../Redux/features/Watchlist/watchlistaction";
 import { toast } from "react-toastify";
+import { bringToOrders } from "../../Redux/features/orders/orderActions";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,7 +24,8 @@ function Login() {
       .then((userData) => {
         localStorage.setItem("id",userData.user.uid);
         dispatch(bringToCart(localStorage.getItem('id')));
-        dispatch(getFromWatchList(localStorage.getItem('id')))
+        dispatch(getFromWatchList(localStorage.getItem('id')));
+        dispatch(bringToOrders(localStorage.getItem('id')));
         navigate("/");
         toast.success("Logged in as "+localStorage.getItem('id'));
       })

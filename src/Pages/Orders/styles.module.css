@@ -1,0 +1,41 @@
+.orders{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    width: 80%;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: 600;
+    color: #F12A43;
+    text-decoration: dashed;
+    text-underline-offset: 0.5rem;
+    margin-top: 3rem;
+}
+.orderContainer{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.order{
+    width: 100%;
+    background-color: aqua;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.order:hover{
+    scale: 1.05;
+}

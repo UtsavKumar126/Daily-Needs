@@ -16,6 +16,8 @@ import ProductCategoryPage from "./Pages/ProductCategoryPage";
 import { bringToCart } from "./Redux/features/Cart/CartActions";
 import { bringToOrders } from "./Redux/features/orders/orderActions";
 import { getFromWatchList } from "./Redux/features/Watchlist/watchlistaction";
+import Orders from "./Pages/Orders";
+import OrderPage from "./Pages/OrderPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +32,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/orders" element={<Orders/>} />
+        <Route path="/orders/:orderId" element={<OrderPage/>} />
         <Route path="/category/:category" element={<ProductCategoryPage />} />
       </Routes>
       <ToastContainer position="top-center" />
