@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { getTotalCost } from "../../../Functions/getTotalCost";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { toast } from "react-toastify";
 
 function Total({deliveryDetails, setDeliveryDetails,buyNow}) {
   const { distance } = useContext(CategoryContext);
@@ -16,7 +17,12 @@ function Total({deliveryDetails, setDeliveryDetails,buyNow}) {
   }
 
   function openModal() {
+    if(distance){
     setIsOpen(true);
+    }
+    else{
+      toast.error("Select Delivery distance !!!")
+    }
   }
 
   function handleChange(e){
@@ -31,16 +37,16 @@ function Total({deliveryDetails, setDeliveryDetails,buyNow}) {
         <div className={styles.title}>Order Summary</div>
         <div className={styles.charges}>
           <p className={styles.highlight}>Item Cost :</p>
-          <p className={styles.color}>$ {getTotalCost(cart)}</p>
+          <p className={styles.color}>₹{getTotalCost(cart)}</p>
         </div>
         <div className={styles.charges}>
           <p className={styles.highlight}>Delivery Cost :</p>
-          <p className={styles.color}>$ {distance * 4}</p>
+          <p className={styles.color}>₹{distance * 4}</p>
         </div>
         <hr />
         <div className={styles.charges}>
           <p className={styles.highlight}>Amount :</p>
-          <p className={styles.color}>$ {getTotalCost(cart) + distance * 4}</p>
+          <p className={styles.color}>₹{getTotalCost(cart) + distance * 4}</p>
         </div>
         <button className={styles.button} onClick={openModal}>
           CHECKOUT

@@ -1,0 +1,22 @@
+.container{
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+}
+.category{
+    font-size: x-large;
+    font-weight: 600;
+    color:#F12A43;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    margin-top: 3rem;
+}
+.loader{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

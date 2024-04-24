@@ -23,8 +23,8 @@ function CartItem({ product }) {
           <button onClick={()=>(dispatch(increaseQuantity(product.id)))}>+</button>
         </div>
       </td>
-      <td className="center">${product.price}</td>
-      <td className="center">${product.quantity * product.price}</td>
+      <td className="center">₹{product.price}</td>
+      <td className="center">₹{product.quantity * product.price}</td>
       <td className="center">
         <button onClick={()=>
             {dispatch(removeFromCart(product.id))

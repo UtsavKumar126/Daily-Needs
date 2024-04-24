@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import CartItem from "../../Components/Cart/CartItem";
@@ -15,6 +15,7 @@ function Cart() {
   const products = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch=useDispatch();
+
   const [deliveryDetails, setDeliveryDetails] = useState({
     name: "",
     address: "",

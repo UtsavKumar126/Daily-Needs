@@ -13,7 +13,7 @@ td:first-child{
 }
 td img{
     max-width: 40%;
-    max-height: 20%;
+    height: 50%;
 }
 .quant{
     display: flex;
