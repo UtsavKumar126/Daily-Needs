@@ -14,12 +14,12 @@
 .main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap:1rem
 }
 .carousal{
-    max-width: 90%;
+    max-width: 80%;
 }
 .categories{
     margin-top: 1rem;

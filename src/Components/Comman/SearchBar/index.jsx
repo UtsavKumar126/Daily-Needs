@@ -9,7 +9,7 @@ function SearchBar() {
     getCategories();
   }, []);
   async function getCategories() {
-    const resp = await fetch("https://dummyjson.com/products/categories");
+    const resp = await fetch("https://dummyjson.com/products/category-list");
     const data = await resp.json();
     setCategories(data);
   }
